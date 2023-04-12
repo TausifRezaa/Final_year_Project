@@ -13,8 +13,8 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh 'docker exec Olympic-Container /bin/bash'
-                sh 'docker exec Olympic-Container /bin/bash -c "service apache2 restart" '
+                sh 'docker exec Olympic-Container /bin/bash -c "source myenv/bin/activate"'
+                sh 'docker exec Olympic-Container /bin/bash -c "cd Final_year_Project" '
             }
         }
         stage('Deploy') {
