@@ -13,9 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh 'docker exec Olympic-Container /bin/bash -c "source myenv/bin/activate && 
-                cd /var/www/html/Final_year_Project/ &&
-                pwd"'
+                sh 'docker exec Olympic-Container /bin/bash -c "source myenv/bin/activate && cd /var/www/html/Final_year_Project/ && pwd"'
             }
         }
         stage('Deploy') {
