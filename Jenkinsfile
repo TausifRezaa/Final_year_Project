@@ -13,16 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh 'docker exec Olympic-Container /bin/bash -c "source myenv/bin/activate && cd /var/www/html/Final_year_Project/ && pwd"'
+                sh 'docker exec Olympic-Container /bin/bash -c "source myenv/bin/activate && cd /var/www/html/Final_year_Project/ && pwd  && git pull origin master --force && service apache2 restart"'
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-                sh 'docker exec Olympic-Container /bin/bash -c "git remote -v" '
-                sh 'docker exec Olympic-Container /bin/bash -c "git pull origin master --force" '
-                sh 'docker exec Olympic-Container /bin/bash -c "service apache2 restart" '
-            }
-        }
-    }
-}
+       
