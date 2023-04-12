@@ -1,0 +1,30 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block title %} Game Details {% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/gamdetails_css.css' %}">
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock css %}
+
+
+
+{% block content %}
+<section id="hero">
+    <div class="banner">
+        <img src="{% static 'img/bg.png' %}" alt="">
+    </div>
+</section>
+
+<div style="text-align: center;">
+    <a href="{{request.META.HTTP_REFERER}}" style="color: gray;">Go Back</a>
+</div>
+<div style="text-align: center;">
+    <iframe src="{{ broadcast.video_url }}" title="Broadcast" width="750px" height="750px">
+    </iframe>
+</div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block title %} Game Details {% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/gamdetails_css.css' %}">
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock css %}
+
+
+
+{% block content %}
+<section id="hero">
+    <div class="banner">
+        <img src="{% static 'img/bg.jpg' %}" alt="">
+    </div>
+</section>
+<div style="text-align: center;">
+    <a href="{{request.META.HTTP_REFERER}}" style="color: gray;">Go Back</a>
+</div>
+<figure class="text-center mt-5">
+    <blockquote class="blockquote">
+        <h2>Find the schedules for matches</h2>
+    </blockquote>
+</figure>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            {% for schedule in schedule %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span class="badge bg-warning"> {{ schedule.schedule_title }} </span>
+            </li>
+            <p>{{ schedule.match_details }}</p>
+
+            <div class="img">
+                <img src="{{ schedule.schedule_img.url }}" alt="" width="200px">
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

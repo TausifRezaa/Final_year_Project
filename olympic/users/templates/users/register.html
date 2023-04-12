@@ -1,0 +1,74 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block title %} Register {% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock css %}
+
+
+
+{% block content %}
+<div class="overlay">|</div>
+<div class="center">
+    <h1>Signup to Olympics</h1>
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="txt_field">
+            {{ form.username }}
+            <span></span>
+            <label>Enter Username</label>
+            {{ form.username.errors }}
+
+        </div>
+
+        <div class="txt_field">
+            {{ form.first_name.errors }}
+            {{ form.first_name }}
+            <span></span>
+            <label>Enter First Name</label>
+        </div>
+
+        <div class="txt_field">
+            {{ form.last_name.errors }}
+            {{ form.last_name}}
+            <span></span>
+            <label>Enter Last Name</label>
+
+        </div>
+
+        <div class="txt_field">
+            {{ form.email }}
+            <span></span>
+            <label>Enter Your Email Address</label>
+        </div>
+
+        <div class="txt_field">
+            {{ form.password1.errors }}
+            {{ form.password1 }}
+            <span></span>
+            <label>Enter Password</label>
+        </div>
+
+        <div class="txt_field">
+            {{ form.password2.errors }}
+            {{ form.password2 }}
+            <span></span>
+            <label>Enter Password (Re)</label>
+        </div>
+
+        <div class="txt_field">
+            {{ form.country }}
+            <span></span>
+        </div>
+        
+
+        <div class="submit">
+        <input type="submit" value="Register">
+        </div>
+
+    </form>
+</div>
+{% endblock content %}

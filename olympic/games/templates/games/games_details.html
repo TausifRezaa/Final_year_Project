@@ -1,0 +1,63 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block title %} Game Details {% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/gamdetails_css.css' %}">
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock css %}
+
+
+
+{% block content %}
+<section id="hero">
+    <div class="banner">
+        <img src="{% static 'img/bg.jpg' %}" alt="">
+    </div>
+</section>
+
+<section id="games">
+    <figure class="text-center mt-5">
+        <blockquote class="blockquote">
+            <h2>Olympics: {{ gdetails.game_name }}</h2>
+        </blockquote>
+    </figure>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="broadcast">
+                    <h4>Watch Broadcast</h4>
+                    <a href="{% url 'broadcast_details' gdetails.id %}">Watch</a>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="highlights">
+                    <h4>Highlights</h4>
+                    <a href="{% url 'highlights_details' gdetails.id %}">Watch</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="schedule">
+                    <h4>Schedule</h4>
+                    <a href="{% url 'schedule_details' gdetails.id %}">Discover</a>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="scoreboards">
+                    <h4>Scoreboards</h4>
+                    <a href="{% url 'scoreboard_details' gdetails.id %}">Discover</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

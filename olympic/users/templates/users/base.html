@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>{% block title %} {% endblock title %}</title>
+
+    {% block css %}
+    {% endblock css%}
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'img/logo.png' %}" alt="" width="100">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'games_dashboard' %}">Olympics</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'athletes_view' %}">Athletes</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="https://olympics.com/en" target="_blank">About</a>
+                    </li>
+                </ul>
+            </div>
+
+            {% if not request.user.is_authenticated %}
+            <div>
+                <a class="login" href="{% url 'user_login' %}">Login |</a>
+                <a class="register" href="{% url 'user_register' %}">Register</a>
+            </div>
+            {% endif %}
+
+            {% if request.user.is_authenticated %}
+            <div>
+                <a class="text-white" href="{% url 'logout_view' %}">Logout</a>
+            </div>
+            {% endif %}
+        </div>
+    </nav>
+
+
+
+    {% block content %}
+
+    {% endblock content %}
+
+    <footer class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{% static 'img/logo.png' %}" alt="" width="200">
+                </div>
+                <div class="col-md-4">
+                    <h4>Olympic History</h4>
+                    <ul>
+                        <li>
+                            <a href="https://olympics.com/en/olympic-games/sochi-2014" target="_blank">SOCHI 2014</a> <br>
+                        </li>
+
+                        <li>
+                            <a href="https://olympics.com/en/olympic-games/rio-2016" target="_blank">RIO 2016</a> <br>
+                        </li>
+
+                        <li>
+                            <a href="https://olympics.com/en/olympic-games/pyeongchang-2018" target="_blank">PYEONGCHANG 2018</a> <br>
+                        </li>
+
+                        <li>
+                            <a href="https://olympics.com/en/olympic-games/tokyo-2020" target="_blank">TOKYO 2020</a> <br>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>Download</h4>
+                    <ul>
+                        <li class="mb-4">
+                            <a href="https://play.google.com/store/apps/details?id=org.olympic.app.mobile">
+                                <img src="https://olympics.com/en/images/static/b2p-badges/google-play-en.svg?q=1"
+                                    alt="" width="120">
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://apps.apple.com/us/app/olympics/id808794344"><img
+                                    src="https://olympics.com/en/images/static/b2p-badges/app-store-en.svg?q=1" alt=""
+                                    width="120"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

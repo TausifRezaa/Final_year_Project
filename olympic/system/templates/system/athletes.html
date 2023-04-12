@@ -1,0 +1,77 @@
+{% extends 'users/adminbase.html' %}
+{% load static %}
+
+{% block title %} Olympics | Admin Dashboard {% endblock title %}
+
+{% block content %}
+<section id="right-space">
+    <div class="top-space">
+
+        <div class="user">
+            <p>Username (Admin)</p>
+        </div>
+    </div>
+
+    <div class="dash-basic">
+        <div class="dash-card">
+            <h2>{{ ucount }}</h2>
+            <p>Users</p>
+        </div>
+
+        <div class="dash-card">
+            <h2>{{ gamescount }}</h2>
+            <p>Games</p>
+        </div>
+
+        <div class="dash-card">
+            <h2>{{ broadcastscount }}</h2>
+            <p>Broadcasts</p>
+        </div>
+    </div>
+
+    <div class="add-btn">
+        <a href="{% url 'admin_add_athletes' %}" class="add-teacher-btn mr-2">Add Athletes<i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+        <a href="{% url 'export_to_csv' %}" class="add-teacher-btn ml-4">Download CSV of Atheletes</a>
+    </div>
+
+    <div class="table-my">
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Athlete Name</th>
+                    <th>Athlete Game</th>
+                    <th>Athlete Country</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for athletes in athletes %}
+                <tr>
+                    <td>
+                    <a href="{% url 'admin_athletes_details' athletes.id %}">
+                        {{ athletes.athlete_name}}
+                    </a>
+                    </td>
+                    <td>
+                        {{ athletes.athlete_game }}
+                    </td>
+                    <td>
+                        {{ athletes.athlete_country }}
+                    </td>
+                    <td>
+                        <a href="{% url 'delete_athletes' athletes.id %}">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</section>
+
+{% endblock content %}

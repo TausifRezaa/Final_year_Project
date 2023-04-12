@@ -1,0 +1,63 @@
+{% extends 'users/adminbase.html' %}
+{% load static %}
+
+{% block title %} Olympics | Admin Dashboard {% endblock title %}
+
+{% block content %}
+
+<section id="right-space">
+    <div class="top-space">
+
+        <div class="user">
+            <p>{{ request.user }}</p>
+        </div>
+    </div>
+
+    <div class="dash-basic">
+        <div class="dash-card">
+            <h2>{{ ucount }}</h2>
+            <p>Users</p>
+        </div>
+
+        <div class="dash-card">
+            <h2>{{ gamescount }}</h2>
+            <p>Games</p>
+        </div>
+
+        <div class="dash-card">
+            <h2>{{ broadcastscount }}</h2>
+            <p>Broadcasts</p>
+        </div>
+    </div>
+
+    <div class="table-my">
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in ausers %}
+                <tr>
+                    <td>
+                    <a href="{% url 'admin_users' u.id %}">
+                        {{ u.username }}
+                    </a>
+                    </td>
+                    <td>{{ u.first_name }}</td>
+                    <td>{{ u.last_name }}</td>
+                    <td>{{ u.email }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</section>
+{% endblock content %}

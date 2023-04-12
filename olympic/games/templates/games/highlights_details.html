@@ -1,0 +1,49 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block title %} Game Details {% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/gamdetails_css.css' %}">
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock css %}
+
+
+
+{% block content %}
+<section id="hero">
+    <div class="banner">
+        <img src="{% static 'img/bg.jpg' %}" alt="">
+    </div>
+</section>
+
+<div style="text-align: center;">
+    <a href="{{request.META.HTTP_REFERER}}" style="color: gray;">Go Back</a>
+</div>
+
+<h2 class="mt-4">
+    <center>
+        Highlights Details
+    </center>
+</h2>
+
+<div class="broadcast_links container">
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action bg-warning" aria-current="true">
+            Click the highlight you want to watch:
+        </a>
+        {% for highlights in highlights%}
+        {% if highlights.hightlight_video_url %}
+        <a href="{{highlights.hightlight_video_url}}" class="list-group-item list-group-item-action" target="_blank">{{
+            highlights.highlights_title }}</a>
+        {% endif %}
+
+        {% if highlights.hv %}
+        <a href="{% url 'highlights_one' highlights.id %}" class="list-group-item list-group-item-action"
+            target="_blank">{{ highlights.highlights_title }}</a>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

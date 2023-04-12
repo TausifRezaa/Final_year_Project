@@ -1,0 +1,353 @@
+/* --------------------------------------------------
+                Admin Dashboard CSS
+----------------------------------------------------- */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: rgb(226, 222, 222);
+    font-family: Arial;
+    display: flex;
+}
+
+#sidemenue{
+    background: black;
+    width: 300px;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+ul li{
+    list-style: none;
+}
+
+
+#sidemenue .logo img{
+    width: 260px;
+}
+
+#sidemenue .items{
+    margin-top: 40px;
+}
+
+#sidemenue .items li{
+    padding: 15px 15px;
+    width: 300px;
+    height: 30px;
+    line-height: 30px;
+    /* margin: 0 10px 0 25px; */
+    transition: 0.45s all;
+    border-bottom: 1px dashed white;
+}
+
+#sidemenue .items li a{
+    text-decoration: none;
+    color:  white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#sidemenue .items li:hover{
+    background: #253047;
+    cursor: pointer;
+    transition: 0.45s all;
+}
+
+li.active{
+    background: #253047;
+}
+
+i{
+    padding-right: 8px;
+}
+
+@media(max-width: 996px){
+    body{
+        display: inline;
+    }
+    
+    #sidemenue{
+        background: black;
+        width: 100%;
+        height: fit-content;
+        overflow: hidden;
+    }
+
+    #sidemenue .items li{
+        padding: 15px 15px;
+        width: 100%;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        /* margin: 0 10px 0 25px; */
+        transition: 0.45s all;
+        border-bottom: 1px dashed white;
+    }
+
+    .logo{
+        text-align: center;
+        color: #ffffff;
+    }
+   
+    #sidemenue .logo img{
+        width: 100px;
+        margin: 0 auto;
+    }
+
+
+}
+
+
+
+
+/* -------------------------------------------
+    Nav like section of right side
+---------------------------------------------- */
+
+#right-space{
+    width: calc(100%);
+    display: flex;
+    flex-direction: column;
+}
+.top-space{
+    background: rgb(42, 12, 151);
+    color: #ffffff;
+    width: auto;
+    display: flex;
+    padding: 12px 24px;
+    justify-content: space-between;
+    line-height: 34px;
+}
+
+input{
+    padding: 8px 12px;
+}
+
+
+
+/* ---------------------------------------------------
+                Admin Dashboard cards
+------------------------------------------------------ */
+
+.dash-basic{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+.dash-card h2{
+    font-size: 225%;
+    color: green;
+}
+
+.dash-card p{
+    color: rgb(218, 150, 150);
+}
+
+.dash-card{
+    width: 12rem;
+    background: #ffffff;
+    padding: 24px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+@media (max-width: 767px){
+    .dash-card{
+       margin-bottom: 24px;
+    }
+}
+
+/* -----------------------------------------
+                Table CSS
+-------------------------------------------- */
+.table-my{
+    padding: 24px 12px;
+}
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #ccc; 
+    text-align: left; 
+  }
+
+
+  /* --------------------------------
+            Media Query of Table
+  ----------------------------------- */
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+}
+
+
+
+/* --------------------------------------------------
+                    Category CSS
+----------------------------------------------------- */
+
+.category-boxes{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content:  space-around;
+    align-items: center;
+}
+
+.box-cat{
+    background: rgb(204, 204, 245);
+    margin: 18px;
+    width:  80%;
+    height: auto;
+    padding: 24px;
+    border-radius: 8px;
+    display: flex;
+    justify-content:  space-around;
+}
+
+.box-cat a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.my-list ul li{
+    border-bottom: 1px solid green;
+    padding: 12px;
+}
+
+
+.my-btn{
+    padding: 12px;
+    text-decoration: none;
+    border: 1px solid green;
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+.my-btn:hover{
+    cursor:pointer;
+}
+
+
+
+.red{
+    padding-top: 4px;
+    color: red;
+}
+
+
+
+/* ---------------------------------------------
+                Add Teacher Btn
+------------------------------------------------ */
+
+.add-btn{
+    margin-top: 24px;
+    padding: 24px 12px;
+}
+
+.add-teacher-btn{
+    padding: 12px 12px;
+    background: #333333;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid green;
+    border-radius: 12px;
+}
+
+
+
+
+/*-------------------------------------------
+            Teacher add form CSS
+--------------------------------------------- */
+.teacher_form{
+border: 1px solid rgb(201, 197, 197);
+width: fit-content;
+padding: 12px;
+position: relative;
+margin: 0 auto;
+}
+
+.teacher_form input, select{
+    margin:8px;
+    border-radius: 24px;
+    border: none;
+    width: 250px;
+}
+
+.btn{
+    background: green;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.btn:hover{
+    cursor: pointer;
+}
+
+
+.vertical-form{
+    margin: 0 auto;
+}
+
+.vertical-form form{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    justify-content: center;
+}
+
+.vertical-form form input{
+    margin-bottom: 8px;
+}

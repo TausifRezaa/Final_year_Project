@@ -1,0 +1,26 @@
+form{
+    padding: 24px;
+}
+
+form div{
+    padding: 4px;
+}
+
+form div#div_id_groups, form div#div_id_user_permissions{
+    display: none;
+}
+
+form div label{
+    font-weight: bold;
+}
+
+form input{
+    outline: none;
+    border: none;
+}
+form input[type=submit]{
+    background: green;
+    color: #ffffff;
+    padding: 4px 12px;
+    border-radius: 12px;
+}

@@ -1,0 +1,25 @@
+.broadcast, .schedule{
+    background: rgb(174, 206, 247);
+    border-radius: 24px;
+    height: 124px;
+    padding: 24px;
+    margin-top: 24px;
+    width: 100%;
+}
+
+.highlights a,.schedule a, .broadcast a, .scoreboards a{
+ float: right;
+ background: rgb(230, 116, 116);
+ text-decoration: none;
+ color: #000000;
+ padding: 6px;
+ border-radius: 6px;
+}
+
+.highlights, .scoreboards{
+    background: rgb(94, 91, 94);
+    border-radius: 24px;
+    height: 124px;
+    padding: 24px;
+    margin-top: 24px;
+}

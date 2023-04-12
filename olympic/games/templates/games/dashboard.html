@@ -1,0 +1,58 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block title %} Olympics | Dashboard {% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock css %}
+
+
+
+{% block content %}
+<section id="banner">
+  <div class="banner">
+    <img src="{% static 'img/bg.jpg' %}" alt="">
+  </div>
+</section>
+
+<section id="games">
+  <figure class="text-center mt-5">
+    <blockquote class="blockquote">
+      <p><B>Please go through the Sports Category of your choice.</B></p>
+    </blockquote>
+  </figure>
+
+
+  <div class="container">
+    <div class="row">
+
+      {% if games %}
+      {% for x in games %}
+      <div class="col-md-6">
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              {% if x.game_image %}
+              <img src="{{ x.game_image.url }}" class="img-fluid rounded-start" alt="...">
+              {% endif %}
+
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ x.game_name }}</h5>
+                <p class="card-text">{{ x.game_description|truncatechars:125 }}</p>
+                <a href="{% url 'game_details' x.id %}" class="btn btn-primary">Explore</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

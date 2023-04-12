@@ -1,0 +1,15 @@
+{% extends 'users/adminbase.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %} Olympics | Admin Dashboard {% endblock title %}
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    <h2>Update the basic User details</h2>
+    <i> (To change the password please goto: /admin url)</i> <br><br>
+    {{ user_form|crispy }}
+    <input type="submit" value="Save">
+</form>
+{% endblock content %}

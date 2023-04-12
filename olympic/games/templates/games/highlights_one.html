@@ -1,0 +1,27 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block title %} Game Details {% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/gamdetails_css.css' %}">
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock css %}
+
+
+
+{% block content %}
+<section id="hero">
+    <div class="banner">
+        <img src="{% static 'img/bg.jpg' %}" alt="">
+    </div>
+</section>
+
+<div style="text-align: center;">
+    <a href="{{request.META.HTTP_REFERER}}" style="color: gray;">Go Back</a>
+</div>
+<video width="100%" height="auto" controls>
+    <source src="{{ highlights.hv.url }}" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+{% endblock content %}

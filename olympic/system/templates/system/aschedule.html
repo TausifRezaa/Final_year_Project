@@ -1,0 +1,74 @@
+{% extends 'users/adminbase.html' %}
+{% load static %}
+
+{% block title %} Olympics | Admin Dashboard {% endblock title %}
+
+{% block content %}
+<section id="right-space">
+    <div class="top-space">
+
+        <div class="user">
+            <p>Username (Admin)</p>
+        </div>
+    </div>
+
+    <div class="dash-basic">
+        <div class="dash-card">
+            <h2>{{ ucount }}</h2>
+            <p>Users</p>
+        </div>
+
+        <div class="dash-card">
+            <h2>{{ gamescount }}</h2>
+            <p>Games</p>
+        </div>
+
+        <div class="dash-card">
+            <h2>{{ broadcastscount }}</h2>
+            <p>Broadcasts</p>
+        </div>
+    </div>
+
+    <div class="add-btn">
+        <a href="{% url 'admin_add_schedule' %}" class="add-teacher-btn mr-2">Add Schedule<i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+
+        <a href="{% url 'export_to_csv_schedule' %}" class="add-teacher-btn ml-4">Download CSV of Schedule</a>
+    </div>
+
+    <div class="table-my">
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Game Name</th>
+                    <th>Schedule Title</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for schedule in schedule %}
+                <tr>
+                    <td>
+                        {{ schedule.for_game }}
+                    </td>
+                    <td>
+                    <a href="{% url 'admin_schedule_details' schedule.id %}">
+                        {{ schedule.schedule_title}}
+                    </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'delete_schedule' schedule.id %}">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</section>
+
+{% endblock content %}

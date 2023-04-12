@@ -1,0 +1,45 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block title %} Game Details {% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/gamdetails_css.css' %}">
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock css %}
+
+
+
+{% block content %}
+<section id="hero">
+    <div class="banner">
+        <img src="{% static 'img/bg.png' %}" alt="">
+    </div>
+</section>
+<div style="text-align: center;">
+    <a href="{{request.META.HTTP_REFERER}}" style="color: gray;">Go Back</a>
+</div>
+
+<h2 class="mt-4">
+    <center>
+        Broadcast Details
+    </center>
+</h2>
+
+<div class="broadcast_links container">
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action bg-warning" aria-current="true">
+            Select the broadcast link:
+        </a>
+        {% for broadcast in broadcast %}
+        <a href="{{broadcast.video_url}}" class="list-group-item list-group-item-action" target="_blank">{{ broadcast.broadcast_title }}</a>
+        <form action="{% url 'broadcast_one' broadcast.id %}" method="get" style="display: inline;">
+            <input type="hidden" name="broadcast-id" value="{{broadcast.id}}">
+            <button type="submit" style="background: rgb(4, 24, 4); color: #ffffff; padding: 4px; border-radius: 12px; float: right; margin: 12px 0px;">Click to Watch</button>
+        </form>
+
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

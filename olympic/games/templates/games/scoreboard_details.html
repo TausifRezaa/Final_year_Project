@@ -1,0 +1,38 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block title %} Game Details {% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/gamdetails_css.css' %}">
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock css %}
+
+
+
+{% block content %}
+<section id="hero">
+    <div class="banner">
+        <img src="{% static 'img/bg.jpg' %}" alt="">
+    </div>
+</section>
+<div style="text-align: center;">
+    <a href="{{request.META.HTTP_REFERER}}" style="color: gray;">Go Back</a>
+</div>
+<figure class="text-center mt-5">
+    <blockquote class="blockquote">
+        <h2>View the Scores</h2>
+    </blockquote>
+</figure>
+
+<div class="container">
+    <ul class="list-group" style="border: none;">
+        {% for scoreboard in scoreboard %}
+        <li class="list-group-item d-flex justify-content-between align-items-center" style="border: none; border-bottom: 1px dashed black;">
+          {{ scoreboard.countries }}
+          <span class="badge bg-warning">{{ scoreboard.score }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+</div>
+{% endblock content %}

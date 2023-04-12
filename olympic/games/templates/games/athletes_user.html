@@ -1,0 +1,50 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block title %} Olympics | Dashboard {% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+<link rel="stylesheet" href="{% static 'css/gamdetails_css.css' %}">
+{% endblock css %}
+
+
+
+{% block content %}
+
+<section id="games">
+  <figure class="text-center mt-5">
+    <blockquote class="blockquote">
+      <pAthletes</p>
+    </blockquote>
+  </figure>
+</section>
+
+<div class="container">
+    <div class="row">
+        {% if athletes %}
+        {% for athletes in athletes %}
+        <div class="col-md-4">
+
+            <div class="card" style="width: 18rem;">
+                <img src="{{ athletes.athlete_image.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ athletes.athlete_name }}
+                    </h5>
+                <p class="card-text">  {{ athletes.athlete_description }}  
+                </p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{ athletes.athlete_game }}</li>
+                <li class="list-group-item">{{ athletes.athlete_country }}</li>
+            </ul>
+        </div>
+    </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+
+
+{% endblock content %}
